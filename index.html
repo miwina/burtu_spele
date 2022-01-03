@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burtu spēle!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -21,37 +23,30 @@
 
         <div class="content">
             <div>
-                    <div style=" width: 33%; float: left; " class="zirafe_img"> <img src="image1.jpg" style="width: 100%"></div>
+                    <div style=" width: 33%; float: left; " class="zirafe_img"> <img src="zirafe2.jpg" style="width: 100%"></div>
                     <div style=" width: 33%; float: left;">
 
                         <form class="centered" action="#" method="post">
-
-                                <div class="game">
-                                    <div>T</div>
-                                    <div>R</div>
-                                    <div>U</div>
-                                    <div>T</div>
-                                    <div>H</div>
-                                </div> <!--beidzas game-->
-
+                            <div id="letters_game" class="game"></div>
                             <div style="clear: both"></div>
                             <div style="text-align: center"><button  type="submit">Sākt</button></div>
                         </form>
                     </div>
 
 
-                <div style=" width: 33%;  float: left; font-size: larger;"><strong>Spēles būtība:</strong>  <br> <br> Tev ir jāatmin piecburtu lietvārdi, ko Tev piedāvā spēle.<br>
-                    Ja pareizi atminēsi vārdu, tas parādīsies zaļā krāsā, iegūsi 500 punktus.<br> <br>
-                    Esi gatavs izaicināt sevi?
+                <div style=" width: 33%;  float: left;"><strong>Spēles būtība:</strong>  <br> <br> Tev ir jāatmin piecburtu lietvārdi, ko Tev piedāvā spēle.<br>
+                    Ja pareizi atminēsi vārdu, tas parādīsies "WIN!", iegūsi 500 punktus.<br> <br>
+                    Esi gatavs izaicināt sevi? Spied SĀKT!
                 </div>
             </div>
 
         </div><!--beidzas content-->
         <div style="clear: both"></div>
-    
-        <div class="footer" style="text-align: right;">
-                <span class="saite">
-                <a href ="https://www.abcya.com/grades/k"><img src="logo1.jpg" width="50px" height="30px" ></a>
+
+        <div class="footer" >
+            <span class="noteikumi">Noteikumu teksts</span>
+            <span class="saite">
+                <a href ="https://www.abcya.com/grades/k"><img src="logo1.JPG" width="50px" height="30px" ></a>
             </span>
             <span class="autors">
                 autore:Marina
@@ -59,5 +54,25 @@
         </div> <!--beidzas footer-->
 
     </div><!--beidzas wrapper-->
+
+    <script>
+       var letters = ['1', '2', '3', '4', '5'];
+        var count = 0;
+        function compareRandom() {
+            count++;
+            return Math.random() - 0.5;
+        }
+        letters.sort(compareRandom);
+        var startingNo = letters.length;
+        var $node = "";
+        var i=1;
+        for(varCount=1;varCount<=startingNo;varCount++){
+            $node += "<div draggable='true' class='box'>"+letters[varCount-1]+"</div>"
+            i++;
+        }
+        $('#letters_game').prepend($node);
+
+    </script>
 </body>
+
 </html>

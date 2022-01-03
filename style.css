@@ -50,13 +50,12 @@ p
     font-size: 200%;
        
 }
-.centered
-{
+.game div.over {
+    border: 2px dotted #666;
+}
 
-   /* position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);*/
+[draggable] {
+    user-select: none;
 }
 @media screen and (min-width: 900px) {
     .zirafe_img {
