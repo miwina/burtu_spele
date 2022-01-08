@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burtu spēle!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -20,33 +22,22 @@
         </div><!--beidzas header-->
 
         <div class="content">
+            <h3 class="virsraksts">Sveiks </h3>
             <div>
-                <div style=" width: 33%; float: left; " class="zirafe_img"> 
-                    <img src="zirafe2.jpg" style="width: 100%"></div>
+                    <div style=" width: 33%; float: left; " class="zirafe_img"> <img src="zirafe2.jpg" style="width: 100%"></div>
                     <div style=" width: 33%; float: left;">
 
-                       <div style="clear: both"></div>
-                            Vārds: <input id="vards" />
-                            <br />
-                            Vecums: <input id="vecums" />
-                            <br />
-                            Reģions:
-                            <select id="regions">
-                                <option value="Vidzeme">Vidzeme</option>
-                                <option value="Latgale">Latgale</option>
-                                <option value="Kurzeme">Kurzeme</option>
-                                <option value="Zemgale">Kurzeme</option>
-                            </select>
-
-                            <div style="text-align: center">
-                               <button onclick="saktSpeli()"  type="submit">Sākt</button></div>
-                       
+                        <form class="centered" action="#" method="post">
+                            <div id="letters_game" class="game"></div>
+                            <div style="clear: both"></div>
+                            <div style="text-align: center"><button  type="submit">Sākt</button></div>
+                        </form>
                     </div>
 
 
                 <div style=" width: 33%;  float: left;"><strong>Spēles būtība:</strong>  <br> <br> Tev ir jāatmin piecburtu lietvārdi, ko Tev piedāvā spēle.<br>
                     Ja pareizi atminēsi vārdu, tas parādīsies "WIN!", iegūsi 500 punktus.<br> <br>
-                    Esi gatavs izaicināt sevi? 
+                    Esi gatavs izaicināt sevi? Spied SĀKT!
                 </div>
             </div>
 
@@ -59,31 +50,32 @@
                 <a href ="https://www.abcya.com/grades/k"><img src="logo1.JPG" width="50px" height="30px" ></a>
             </span>
             <span class="autors">
-                autore:MD
+                autore:Marina
             </span>
         </div> <!--beidzas footer-->
 
     </div><!--beidzas wrapper-->
 
     <script>
-    function saktSpeli() 
-    {
-        let vards   = document.querySelector('#vards').value
-        let vecums  = document.querySelector('#vecums').value
-        let regions = document.querySelector('#regions').value
-        
-        console.log(regions)
 
-        if( vards=='')
-        {
-            alert('Ievadi vārdu!')
-        }
-        else
-        {
-            window.location='spele.html#'+vards+','+vecums+','+regions
-        }
 
-    }//beidzas saktSpeli()
+
+       var letters = ['1', '2', '3', '4', '5'];
+        var count = 0;
+        function compareRandom() {
+            count++;
+            return Math.random() - 0.5;
+        }
+        letters.sort(compareRandom);
+        var startingNo = letters.length;
+        var $node = "";
+        var i=1;
+        for(varCount=1;varCount<=startingNo;varCount++){
+            $node += "<div draggable='true' class='box'>"+letters[varCount-1]+"</div>"
+            i++;
+        }
+        $('#letters_game').prepend($node);
+
     </script>
 </body>
 
