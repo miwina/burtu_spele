@@ -1,26 +1,4 @@
 
-function saktSpeli() 
-{
-    let vards   = document.querySelector('#vards').value
-    let vecums  = document.querySelector('#vecums').value
-    let regions = document.querySelector('#regions').value
-    
-    console.log(regions)
-
-    if( vecums !==undefined && vards=='') 
-    {
-        alert('Ievadi vārdu!')
-    }
-    else
-    {
-        window.location='spele.html#'+vards+','+vecums+','+regions
-    }
-
-   
-}//beidzas saktSpeli()
-
-
-document.querySelector('.virsraksts').innerHTML = 'Sveiks '+vards
 
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -90,8 +68,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             item.classList.remove('over');
         });
     }
-
-
     let items = document.querySelectorAll('.game .box');
     items.forEach(function(item){
         item.addEventListener('dragstart', handleDragStart, false);
@@ -108,3 +84,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 });
+
+function saktSpeli() 
+{
+    let vards   = document.querySelector('#vards').value
+    let vecums  = document.querySelector('#vecums').value
+    let regions = document.querySelector('#regions').value
+    
+    console.log(regions)
+
+    if( vecums !==undefined && vards=='') 
+    {
+        alert('Ievadi vārdu!')
+    }
+    else
+    {
+        window.location='spele.html#'+vards+','+vecums+','+regions
+    }
+
+   
+}//beidzas saktSpeli()
+
+
+document.querySelector('.virsraksts').innerHTML = 'Sveiks '+vards

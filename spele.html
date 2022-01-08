@@ -57,16 +57,16 @@
     </div><!--beidzas wrapper-->
 
     <script>
-        var letters = ['1', '2', '3', '4', '5', '6'];
-        var count = 0;
+       const letters = ['1', '2', '3', '4', '5'];
+        let count = 0;
         function compareRandom() {
             count++;
             return Math.random() - 0.5;
         }
         letters.sort(compareRandom);
-        var startingNo = letters.length;
-        var $node = "";
-        var i=1;
+        let startingNo = letters.length;
+        let $node = "";
+        let i=1;
         for(varCount=1;varCount<=startingNo;varCount++){
             $node += "<div draggable='true' class='box'>"+letters[varCount-1]+"</div>"
             i++;
