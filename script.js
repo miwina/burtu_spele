@@ -1,10 +1,27 @@
 
-let adrese = window.location.hash
-adrese = decodeURI(adrese)
-adrese = adrese.replace('#','')
-adrese = adrese.split(",")
-let vards  = adrese[0]
+function saktSpeli() 
+{
+    let vards   = document.querySelector('#vards').value
+    let vecums  = document.querySelector('#vecums').value
+    let regions = document.querySelector('#regions').value
+    
+    console.log(regions)
+
+    if( vecums !==undefined && vards=='') 
+    {
+        alert('Ievadi vārdu!')
+    }
+    else
+    {
+        window.location='spele.html#'+vards+','+vecums+','+regions
+    }
+
+   
+}//beidzas saktSpeli()
+
+
 document.querySelector('.virsraksts').innerHTML = 'Sveiks '+vards
+
 
 document.addEventListener('DOMContentLoaded', (event) => {
 
@@ -52,7 +69,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
         let items = document.querySelectorAll('.game .box');
         i=0;   var win=true;
-        var letters = ['1', '2', '3', '4', '5'];
+        var letters = ['1', '2', '3', '4', '5', '6'];
         items.forEach(function(item){
             if(item.innerText!=letters[i]){
                win=false;
