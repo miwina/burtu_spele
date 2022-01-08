@@ -29,14 +29,25 @@
                         <form class="centered" action="#" method="post">
                             <div id="letters_game" class="game"></div>
                             <div style="clear: both"></div>
-                            <div style="text-align: center"><button  type="submit">Sākt</button></div>
+                            Vārds: <input id="vards" />
+                            <br />
+                            Vecums: <input id="vecums" />
+                            <br />
+                            Reģions:
+                            <select id="regions">
+                                <option value="Vidzeme">Vidzeme</option>
+                                <option value="Latgale">Latgale</option>
+                                <option value="Kurzeme">Kurzeme</option>
+                                <option value="Zemgale">Kurzeme</option>
+                            </select>
+                            <div style="text-align: center"><button onclick="saktSpeli()"  type="submit">Sākt</button></div>
                         </form>
                     </div>
 
 
                 <div style=" width: 33%;  float: left;"><strong>Spēles būtība:</strong>  <br> <br> Tev ir jāatmin piecburtu lietvārdi, ko Tev piedāvā spēle.<br>
                     Ja pareizi atminēsi vārdu, tas parādīsies "WIN!", iegūsi 500 punktus.<br> <br>
-                    Esi gatavs izaicināt sevi? Spied SĀKT!
+                    Esi gatavs izaicināt sevi? 
                 </div>
             </div>
 
@@ -56,6 +67,24 @@
     </div><!--beidzas wrapper-->
 
     <script>
+        function saktSpeli() 
+    {
+        let vards   = document.querySelector('#vards').value
+        let vecums  = document.querySelector('#vecums').value
+        let regions = document.querySelector('#regions').value
+        
+        console.log(regions)
+
+        if( vards=='' )
+        {
+            alert('Ievadi vārdu!')
+        }
+        else
+        {
+            window.location='spele.html#'+vards+','+vecums+','+regions
+        }
+
+    }//beidzas saktSpeli()
        var letters = ['1', '2', '3', '4', '5'];
         var count = 0;
         function compareRandom() {
