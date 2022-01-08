@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="script.js"></script>
     <title>Burtu spēle!</title>
 </head>
@@ -27,9 +28,19 @@
                     <div style=" width: 33%; float: left;">
 
                        <div style="clear: both"></div>
-                            Vārds: <input id="vards" />
+                        <div id="game_b" style="visibility: hidden; display: none;">
+                            <h3 id="virsraksts" style="visibility: hidden">Hello, </h3>
+                            <form class="centered" action="#" method="post">
+                                <div id="letters_game" class="game"></div>
+                                <div style="clear: both"></div>
+
+                            </form>
+                        </div>
+
+                        <div id="form">
+                            Vārds: <input id="vards" type="text">
                             <br />
-                            Vecums: <input id="vecums" />
+                            Vecums: <input id="vecums" type="number">
                             <br />
                             Reģions:
                             <select id="regions">
@@ -40,8 +51,13 @@
                             </select>
 
                             <div style="text-align: center">
-                               <button onclick="saktSpeli()"  type="submit">Sākt</button></div>
-                       
+                               <button onclick="saktSpeli()"  type="submit">Sākt</button>
+                            </div>
+                        </div>
+
+
+
+
                     </div>
 
 
@@ -60,9 +76,51 @@
 
 
     </div><!--beidzas wrapper-->
-
     <script>
-    
+        const letters=['T','R','U','T','H']
+        let count = 0;
+        function compareRandom() {
+            count++;
+            return Math.random() - 0.5;
+        }
+        letters.sort(compareRandom);
+
+        let startingNo = letters.length;
+        let $node = "";
+        let i=1;
+        for(varCount=1;varCount<=startingNo;varCount++){
+            $node += "<div draggable='true' class='box'>"+letters[varCount-1]+"</div>"
+            i++;
+        }
+        $('#letters_game').prepend($node);
+
+
+
+        function saktSpeli()
+        {
+            let vards   = document.querySelector('#vards').value;
+            let vecums  = document.querySelector('#vecums').value;
+            let regions = document.querySelector('#regions').value;
+
+            console.log(vards);
+
+            if( vecums !==undefined && vards=='')
+            {
+                alert('Ievadi vārdu!')
+            }
+            else
+            {
+                document.getElementById('form').style.visibility = 'hidden';
+                document.getElementById('virsraksts').style.visibility = 'visible';
+                document.getElementById('game_b').style.visibility = 'visible';
+                document.getElementById("game_b").style.display = "block";
+
+            }
+
+            document.querySelector('#virsraksts').innerHTML = 'Sveiks '+vards;
+        }//beidzas saktSpeli()
+
+
     </script>
 </body>
 

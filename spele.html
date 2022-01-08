@@ -22,7 +22,7 @@
         </div><!--beidzas header-->
 
         <div class="content">
-            <h3 class="virsraksts"><div id=getNme()</div></h3>
+            <h3 class="virsraksts">Hello, </h3>
             <div>
                     <div style=" width: 33%; float: left; " class="zirafe_img"> <img src="zirafe2.jpg" style="width: 100%"></div>
                     <div style=" width: 33%; float: left;">
@@ -51,7 +51,17 @@
     </div><!--beidzas wrapper-->
 
     <script>
-        const letters=['T','R','U','T','H']
+        const string = 'TRUTH LUCKY ANIME CARDS'
+        const usingSplit = string.split('');
+        const usingSpread = [...string];
+        const usingArrayFrom = Array.from(string);
+        const usingObjectAssign = Object.assign([], string);
+            
+        const letters=usingObjectAssign;
+        while (letters.length>0){
+            
+        }
+
         let count = 0;
         function compareRandom() {
             count++;
@@ -67,7 +77,7 @@
             i++;
         }
         $('#letters_game').prepend($node);
-
+        
     </script>
 </body>
 
