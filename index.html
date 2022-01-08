@@ -27,8 +27,7 @@
                     <div style=" width: 33%; float: left;">
 
                         <form class="centered" action="#" method="post">
-                            <div id="letters_game" class="game"></div>
-                            <div style="clear: both"></div>
+                           <div style="clear: both"></div>
                             Vārds: <input id="vards" />
                             <br />
                             Vecums: <input id="vecums" />
@@ -67,7 +66,7 @@
     </div><!--beidzas wrapper-->
 
     <script>
-        function saktSpeli() 
+    function saktSpeli() 
     {
         let vards   = document.querySelector('#vards').value
         let vecums  = document.querySelector('#vecums').value
@@ -85,22 +84,6 @@
         }
 
     }//beidzas saktSpeli()
-       var letters = ['1', '2', '3', '4', '5'];
-        var count = 0;
-        function compareRandom() {
-            count++;
-            return Math.random() - 0.5;
-        }
-        letters.sort(compareRandom);
-        var startingNo = letters.length;
-        var $node = "";
-        var i=1;
-        for(varCount=1;varCount<=startingNo;varCount++){
-            $node += "<div draggable='true' class='box'>"+letters[varCount-1]+"</div>"
-            i++;
-        }
-        $('#letters_game').prepend($node);
-
     </script>
 </body>
 
