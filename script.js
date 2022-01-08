@@ -1,6 +1,3 @@
-
-
-
 document.addEventListener('DOMContentLoaded', (event) => {
 
     var dragSrcEl = null;
@@ -47,7 +44,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
         let items = document.querySelectorAll('.game .box');
         i=0;   var win=true;
-        var letters = ['1', '2', '3', '4', '5', '6'];
+        var letters = ['T', 'R', 'U', 'T', 'H'];
         items.forEach(function(item){
             if(item.innerText!=letters[i]){
                win=false;
